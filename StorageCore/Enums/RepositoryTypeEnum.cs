@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookStorageCore
+namespace StorageCore.Enums
 {
-    public interface IBookRepository
+    public enum RepositoryTypeEnum
     {
-        List<Book> Get();
-        void Put(List<Book> list);
+        TxtRepository,
+        XMLRepository,
+        SQLRepository
     }
 }
