@@ -7,7 +7,7 @@ using System.IO;
 
 namespace StorageCore
 {
-    public class TxtRepository : IRepository 
+    public class TxtRepository : IRepository
     {
         private string _fileName = "TxtStorage.txt";
 
@@ -28,8 +28,8 @@ namespace StorageCore
             foreach (string line in lines)
             {
                 index = line.IndexOf('>');
-                typeIdentity = new char[index+1];
-                line.CopyTo(0, typeIdentity, 0, index+1);
+                typeIdentity = new char[index + 1];
+                line.CopyTo(0, typeIdentity, 0, index + 1);
                 switch (new string(typeIdentity))
                 {
                     case "<Book>":
@@ -48,11 +48,11 @@ namespace StorageCore
                         break;
                 }
             }
-            
+
             return items;
         }
 
-        public void Put<T>(List<T> items) where T: TextPaper
+        public void Put<T>(List<T> items) where T : TextPaper
         {
             List<string> lines = new List<string>();
 

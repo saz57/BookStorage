@@ -7,7 +7,7 @@ using StorageCore.Enums;
 
 namespace StorageCore
 {
-    public class Storage<T> where T: TextPaper
+    public class Storage<T> where T : TextPaper
     {
         private List<T> _storage;
         private IRepository _repository;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace StorageCore
 {
     [Serializable]
-    public class NewsPaper :TextPaper
+    public class NewsPaper : TextPaper
     {
         public List<Article> articles { get; set; }
 
@@ -39,7 +39,7 @@ namespace StorageCore
             int articleStart = 0;
             int articleEnd = 0;
             Name = TextPaper.ReadContext("Name", input);
-            while(true)
+            while (true)
             {
                 articleStart = input.IndexOf("<Article>", articleStart);
                 if (articleStart == (-1))
@@ -50,7 +50,7 @@ namespace StorageCore
                 if (articleStart != (-1))
                 {
                     articleEnd = input.IndexOf("</Article>", articleStart);
-                    articles.Add(new Article(input.Substring(articleStart,articleEnd - articleStart)));
+                    articles.Add(new Article(input.Substring(articleStart, articleEnd - articleStart)));
                     articleStart = articleEnd;
                 }
             }

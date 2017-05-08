@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace StorageCore
 {
     [Serializable]
-    public class Book: TextPaper
+    public class Book : TextPaper
     {
         public string Autor { get; set; }
         public object Content { get; set; }

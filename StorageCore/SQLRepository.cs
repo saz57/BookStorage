@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace StorageCore
 {
-    public class SQLRepository: IRepository
+    public class SQLRepository : IRepository
     {
         private string _connectionString;
         private SqlConnection _sqlConnection;
@@ -23,7 +23,7 @@ namespace StorageCore
             T buffItem;
             string sqlExpression = "SELECT * FROM ";
             _sqlConnection.Open(); //don't now what is right - open it async, try to do that class singleton or try to block access to databace, if connection is open by another user 
-            
+
             if (typeof(T) == typeof(Book))
             {
                 sqlExpression += "Book";
@@ -31,7 +31,7 @@ namespace StorageCore
 
             if (typeof(T) == typeof(Jornal))
             {
- 
+
             }
 
             if (typeof(T) == typeof(NewsPaper))
@@ -57,7 +57,7 @@ namespace StorageCore
 
                     if (typeof(T) == typeof(NewsPaper))
                     {
- 
+
                     }
                 }
             }
@@ -77,8 +77,8 @@ namespace StorageCore
 
             foreach (T item in items)
             {
-                
-                if (itemsInDatabase.FirstOrDefault<T>( x => x.Equals(item) ) == null)
+
+                if (itemsInDatabase.FirstOrDefault<T>(x => x.Equals(item)) == null)
                 {
                     if (!isFirstItem)
                     {

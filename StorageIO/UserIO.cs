@@ -146,7 +146,7 @@ namespace StorageViev
             NewsPaper newsPaper = new NewsPaper();
             Console.WriteLine("Enter newspaper name:");
             newsPaper.Name = Console.ReadLine();
-            
+
             while (true)
             {
                 newsPaper.articles.Add(CreateStringArticle());
