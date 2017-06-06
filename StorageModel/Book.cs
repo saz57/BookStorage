@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace StorageCore
+namespace StorageModel
 {
     [Serializable]
     public class Book : TextPaper
@@ -15,35 +15,6 @@ namespace StorageCore
 
         public Book()
         { }
-
-        public Book(string input)
-        {
-            ReadFromString(input);
-        }
-
-        public override string ToWritebleTxt()
-        {
-            string result;
-
-            result = "<Book><Name>" + Name + "</Name><Autor>" + Autor + "</Autor><Content>" + Content + "</Content></Book>";
-
-            return result;
-        }
-
-        public override string ToWritebleSql()
-        {
-            string result;
-            result = "('" + Name + "','" + Autor + "','" + Content + "')";
-            return result;
-
-        }
-
-        public override void ReadFromString(string input)
-        {
-            Name = TextPaper.ReadContext("Name", input);
-            Autor = TextPaper.ReadContext("Autor", input);
-            Content = TextPaper.ReadContext("Content", input);
-        }
 
         public override bool Equals(object book)
         {

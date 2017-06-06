@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StorageCore.Enums;
+using StorageModel;
 
 namespace StorageCore
 {
@@ -11,7 +12,6 @@ namespace StorageCore
     {
         private List<T> _storage;
         private IRepository _repository;
-
 
         public Storage(RepositoryTypeEnum repositoryType)
         {
@@ -42,14 +42,14 @@ namespace StorageCore
             _storage.Add(item);
         }
 
-        public T GetById(int bookId)
+        public T GetById(int Id)
         {
-            return _storage[bookId];
+            return _storage[Id];
         }
 
-        public void DeleteById(int bookId)
+        public void DeleteById(int Id)
         {
-            _storage.RemoveAt(bookId);
+            _storage.RemoveAt(Id);
         }
 
         public void SaveToRepository()

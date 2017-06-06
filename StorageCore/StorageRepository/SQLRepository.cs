@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using StorageModel;
 
 namespace StorageCore
 {
@@ -52,7 +53,7 @@ namespace StorageCore
 
                     if (typeof(T) == typeof(Jornal))
                     {
-
+                        
                     }
 
                     if (typeof(T) == typeof(NewsPaper))
@@ -89,7 +90,7 @@ namespace StorageCore
                     {
                         isFirstItem = false;
                     }
-                    sqlExpression += item.ToWritebleSql();
+                    sqlExpression += SQLConvertor.ToWritebleSql(item);
                 }
             }
 

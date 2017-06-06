@@ -4,28 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4F42044-8545-44CE-B375-46F903C07EB2}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1079BD93-1248-431A-99F4-24DA3DA657E5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StorageCore</RootNamespace>
-    <AssemblyName>StorageCore</AssemblyName>
+    <RootNamespace>StoragePresenter</RootNamespace>
+    <AssemblyName>StoragePresenter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,43 +42,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\PaperType.cs" />
-    <Compile Include="Enums\RepositoryTypeEnum.cs" />
-    <Compile Include="StorageRepository\IRepository.cs" />
+    <Compile Include="AddBookPresenter.cs" />
+    <Compile Include="AddJornalPresenter.cs" />
+    <Compile Include="AddNewsPaperPresenter.cs" />
+    <Compile Include="BookPresenter.cs" />
+    <Compile Include="BookStorageMenuPresenter.cs" />
+    <Compile Include="DeleteBookPresenter.cs" />
+    <Compile Include="DeleteJornalPresenter.cs" />
+    <Compile Include="DeleteNewsPaperPresenter.cs" />
+    <Compile Include="ExitPresenter.cs" />
+    <Compile Include="Interfaces\IPresenter.cs" />
+    <Compile Include="JornalPresenter.cs" />
+    <Compile Include="JornalStorageMenuPresenter.cs" />
+    <Compile Include="MainMenuPresenter.cs" />
+    <Compile Include="NewsPaperPresenter.cs" />
+    <Compile Include="NewsPaperStorageMenuPresenter.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StorageRepository\SQLRepository.cs" />
-    <Compile Include="StorageManagment\Storage.cs" />
-    <Compile Include="StorageManagment\StorageManager.cs" />
-    <Compile Include="StorageRepository\TxtConverter.cs" />
-    <Compile Include="StorageRepository\TxtRepository.cs" />
-    <Compile Include="StorageRepository\SQLConvertor.cs" />
-    <Compile Include="StorageRepository\XMLRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\StorageCore\StorageCore.csproj">
+      <Project>{a4f42044-8545-44ce-b375-46f903c07eb2}</Project>
+      <Name>StorageCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StorageIO\StorageView.csproj">
+      <Project>{1536fe4e-6e55-42b3-89a9-3680d362d1b5}</Project>
+      <Name>StorageView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StorageModel\StorageModel.csproj">
       <Project>{b52e3590-f3c2-4c14-9f93-465b72372a49}</Project>
       <Name>StorageModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
